@@ -98,7 +98,7 @@ fn check_contains_written(input: String) -> String {
     let mut new_string = String::from("");
 
     let mut test_string = "".to_string();
-    input.chars().for_each(|c| -> () {
+    input.chars().for_each(|c| {
         test_string += &c.to_string();
         if written_list.contains_key(test_string.as_str()) {
             new_string += written_list.get(test_string.as_str()).unwrap();

@@ -16,7 +16,7 @@ pub fn lines_from_day(day: u32) -> Vec<String> {
 }
 
 pub fn lines_from_file(day: u32) -> Vec<String> {
-    let file_path = "../input/day-{day}.txt";
+    let file_path = format!("../input/day-{day}.txt");
     let file = File::open(file_path).expect("No file found for this day: {day}");
     let buf = BufReader::new(file);
     buf.lines()
