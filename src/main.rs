@@ -9,8 +9,6 @@ fn main() {
 
     let day = &args[1].parse::<u32>().unwrap();
 
-    println!("Day {day}");
-
     match day {
         1 => day1::day1(),
         d => println!("No solution file yet for day {d}"),

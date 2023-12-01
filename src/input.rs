@@ -7,7 +7,8 @@ use reqwest::header::COOKIE;
 
 pub fn lines_from_day(day: u32) -> Vec<String> {
     let client = reqwest::blocking::Client::new();
-    let resp = match client.get("https://adventofcode.com/2022/day/1/input").header(COOKIE, "session=53616c7465645f5f29173fc2131a5a331559081fb74d6f83f071fee5477cb6f3f7371a0fed4f00a1e08f572d08bb986989183e0fc103178f3f413940fef04823").send() {
+    let url = format!("https://adventofcode.com/2023/day/{day}/input");
+    let resp = match client.get(url).header(COOKIE, "session=53616c7465645f5fcec928c93be3081bc09f8508a0e383bc7f0927cae5cf60e2b5b524d6f800c4d522e1cdcb019d5fb20712d44a7a26421880af2bbe63ec7533").send() {
         Ok(resp) => resp.text().unwrap(),
         Err(err) => panic!("Error: {}", err),
     };
