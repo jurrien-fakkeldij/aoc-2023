@@ -22,7 +22,7 @@ fn part1(input: Vec<String>) {
     let games = get_colours_from_games(test_input);
     let output: u32 = games
         .iter()
-        .filter(|(k, v)| has_less_or_equal_than_max((12, 13, 14), v))
+        .filter(|(_, v)| has_less_or_equal_than_max((12, 13, 14), v))
         .map(|(game_num, _)| game_num)
         .sum();
 
@@ -30,13 +30,9 @@ fn part1(input: Vec<String>) {
 
     let games = get_colours_from_games(input);
 
-    games
-        .iter()
-        .filter(|(k, v)| has_less_or_equal_than_max((12, 13, 14), v));
-
     let output: u32 = games
         .iter()
-        .filter(|(k, v)| has_less_or_equal_than_max((12, 13, 14), v))
+        .filter(|(_, v)| has_less_or_equal_than_max((12, 13, 14), v))
         .map(|(game_num, _)| game_num)
         .sum();
 
@@ -98,7 +94,7 @@ fn calculate_game_numbers(game_results: String) -> (u32, u32, u32) {
         round.split(", ").for_each(|get_cubes| {
             //println!("get_cubes:{get_cubes}");
             let mut amount: u32 = 0;
-            get_cubes.split(" ").for_each(|cubes| {
+            get_cubes.split(' ').for_each(|cubes| {
                 //println!("cubes:{cubes}");
                 match cubes {
                     "red" => {
@@ -136,8 +132,8 @@ fn part2(input: Vec<String>) {
     ];
     let games = get_colours_from_games(test_input);
     let output: u32 = games
-        .iter()
-        .map(|(_, colors)| {
+        .values()
+        .map(|colors| {
             colors.get("red").unwrap() * colors.get("blue").unwrap() * colors.get("green").unwrap()
         })
         .sum();
@@ -147,8 +143,8 @@ fn part2(input: Vec<String>) {
     let games = get_colours_from_games(input);
 
     let output: u32 = games
-        .iter()
-        .map(|(_, colors)| {
+        .values()
+        .map(|colors| {
             colors.get("red").unwrap() * colors.get("blue").unwrap() * colors.get("green").unwrap()
         })
         .sum();
