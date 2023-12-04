@@ -87,8 +87,8 @@ fn part2(input: Vec<String>) {
         let amount_copies = *copies.get(&card.id).unwrap_or(&0);
 
         for card_number in (card_id + 1)..(card_id + 1 + matching as i32) {
-            if !copies.contains_key(&card_number) {
-                copies.insert(card_number, 1 + amount_copies);
+            if let std::collections::hash_map::Entry::Vacant(e) = copies.entry(card_number) {
+                e.insert(1 + amount_copies);
             } else {
                 copies
                     .entry(card_number)
@@ -96,7 +96,6 @@ fn part2(input: Vec<String>) {
             }
         }
     });
-    println!("{:?}", copies);
     let output: i32 = copies.values().sum::<i32>() + games.keys().len() as i32;
     println!("Test: {}", output);
 
@@ -112,8 +111,8 @@ fn part2(input: Vec<String>) {
         let amount_copies = *copies.get(&card.id).unwrap_or(&0);
 
         for card_number in (card_id + 1)..(card_id + 1 + matching as i32) {
-            if !copies.contains_key(&card_number) {
-                copies.insert(card_number, 1 + amount_copies);
+            if let std::collections::hash_map::Entry::Vacant(e) = copies.entry(card_number) {
+                e.insert(1 + amount_copies);
             } else {
                 copies
                     .entry(card_number)
