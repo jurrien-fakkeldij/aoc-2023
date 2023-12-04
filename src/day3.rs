@@ -23,9 +23,9 @@ struct EnginePart {
     part: String,
 }
 
-pub fn day3() {
+pub fn day3(session_id: &String) {
     println!("Day 3");
-    let input = lines_from_day(3);
+    let input = lines_from_day(3, session_id);
     part1(input.clone());
     part2(input.clone());
 }

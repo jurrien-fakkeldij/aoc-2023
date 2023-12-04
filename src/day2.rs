@@ -2,9 +2,9 @@ use std::collections::HashMap;
 
 use crate::input::*;
 
-pub fn day2() {
+pub fn day2(session_id: &String) {
     println!("Day 2");
-    let input = lines_from_day(2);
+    let input = lines_from_day(2, session_id);
     part1(input.clone());
     part2(input.clone());
 }

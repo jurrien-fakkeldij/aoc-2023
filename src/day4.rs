@@ -3,9 +3,9 @@ use std::collections::{HashMap, HashSet};
 
 use crate::input::lines_from_day;
 
-pub fn day4() {
+pub fn day4(session_id: &String) {
     println!("Day 4");
-    let input = lines_from_day(4);
+    let input = lines_from_day(4, session_id);
     part1(input.clone());
     part2(input.clone());
 }
